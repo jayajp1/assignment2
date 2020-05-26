@@ -5,47 +5,40 @@
   .controller('ToBuyController', ToBuyController)
   .controller('AlreadyBoughtController', AlreadyBoughtController)
   .service('ShoppingListService', ShoppingListService)
-  .provider('ShoppingListService',ShoppingListServiceProvider).config(Config);
-
-  Config.$inject = ['ShoppingListServiceProvider'];
-  function Config(ShoppingListServiceProvider) {
-    ShoppingListServiceProvider.defaults.minItems = 5;
-  }
+  .provider('ShoppingListService',ShoppingListServiceProvider);
   
 
   ToBuyController.$inject = ['ShoppingListService'];
   function ToBuyController(ShoppingListService) {
     var showList = this;
-  
     showList.items = ShoppingListService.getItems();
     console.log(showList.items.length);
-      if(showList.items.length===0){
-        console.log(showList.items.length);
+    
         showList.error1="Everything is bought";
         //showList.error2="Everything is bought";
-      }
-      else{
+      
         showList.removeItem = function (itemIndex) {
           console.log("re")
           ShoppingListService.removeItem(itemIndex);
         };
       }
-    }
+    
 
     AlreadyBoughtController.$inject = ['ShoppingListService'];
     function AlreadyBoughtController(ShoppingListService) {
     var showList = this;
     var items;
-      if(showList.items2===undefined){
+     // if(showList.items2.length == 0)
+     /* {
         showList.error1="nothing Bought yet...";
       }
-      //else if(showList.items.length==='0')
-        showList.items2= ShoppingListService.getItems2();
-    // }
-    
+      else{
+        
+      }*/
+      showList.items2= ShoppingListService.getItems2();
+}
       
     
-  }
 
   function ShoppingListService(minItems) {
     var service = this;

@@ -17,7 +17,7 @@
           <button ng-click="showList.removeItem($index);">Bought</button>
         </li>
       </ol>
-      <div ng-if="showList.error1" class="error">Error: {{showList.error1}}</div>
+      <div ng-if="showList.items.length == 0" class="error"> Everything is bought</div>
     </div>
 
     <div ng-controller='AlreadyBoughtController as showList'>
@@ -27,7 +27,7 @@
           Bought &nbsp;{{ item.itemQuantity }}  {{ item.itemName }}
         </li>
       </ol>
-      <div ng-if="showList.error2" class="error"> {{showList.error2}}</div>
+     <div ng-if="showList.items2.length == 0" class="error">Nothing Bought yet}</div>
     </div>
 
    
