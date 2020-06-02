@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
-    <script src="app.js"></script>
+    <script src="App.js"></script>
+    
     <style> body { font-size: 1.2em; }</style>
     <title>Shopping List Check Off</title>
   </head>
@@ -27,7 +28,7 @@
           Bought &nbsp;{{ item.itemQuantity }}  {{ item.itemName }}
         </li>
       </ol>
-     <div ng-if="showList.items2.length == 0" class="error">Nothing Bought yet}</div>
+     <div ng-if="showList.items2.length == 0" class="error">Nothing Bought yet</div>
     </div>
 
    
